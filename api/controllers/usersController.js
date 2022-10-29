@@ -16,3 +16,16 @@ export const getUserById = async (req, res) => {
 
     res.json(user);
 }
+export const deleteUser=async (req,res)=>{
+    const { id } = req.params;
+
+    await prisma.user.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+    res.json({
+      success: true,
+      message: 'user successfully deleted'
+    });
+}

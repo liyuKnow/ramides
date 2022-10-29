@@ -16,4 +16,9 @@ GET http://localhost:8080/api/users/ HTTP/1.1
 
 # GET USER BY ID
 ###
-GET http://localhost:8080/api/users/1 HTTP/1.1
+GET http://localhost:8080/api/users/2 HTTP/1.1
+
+
+# DELETE USER BY ID
+###
+DELETE  http://localhost:8080/api/users/3 HTTP/1.1
