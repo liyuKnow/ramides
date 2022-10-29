@@ -21,7 +21,7 @@ app.use(express.json());
 app.use("/api/auth/", authRoutes);
 app.use("/api/users/", userRoutes);
 
-
+console.log("added new line")
 const server = app.listen(PORT, () =>
     console.log(`🚀 Server ready at: http://localhost:${PORT}`)
 );
