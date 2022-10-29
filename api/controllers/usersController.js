@@ -5,18 +5,14 @@ export const getUsers = async (req, res) => {
     res.json(users);
 };
 
-export const userDraftPosts = async (req, res) => {
+export const getUserById = async (req, res) => {
     const { id } = req.params;
 
-    const drafts = await prisma.user
-        .findUnique({
-            where: {
-                id: Number(id),
-            },
-        })
-        .posts({
-            where: { published: false },
-        });
+    const user = await prisma.user.findUnique({
+        where: {
+            id: Number(id),
+        },
+    });
 
-    res.json(drafts);
-};
+    res.json(user);
+}
