@@ -5,8 +5,8 @@ POST http://localhost:8080/api/auth/register HTTP/1.1
 Content-Type:application/json
 
 {  
-    "first_name": "kidus",
-    "last_name": "kidus"
+    "first_name": "test",
+    "last_name": "test"
 }
 
 # FROM usersController
