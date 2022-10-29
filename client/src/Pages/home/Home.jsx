@@ -1,16 +1,12 @@
 import React from 'react';
+import { Hero } from '../../components';
+import Cards from '../../components/Cards';
 
 const Home = () => {
     return (
         <div>
-            <h1 className='mt-12 pt-12'>Hello react </h1>
-            <h1 className='mt-12 pt-12'>Hello react </h1>
-            <h1 className='mt-12 pt-12'>Hello react </h1>
-            <h1 className='mt-12 pt-12'>Hello react </h1>
-            <h1 className='mt-12 pt-12'>Hello react </h1>
-            <h1 className='mt-12 pt-12'>Hello react </h1>
-            <h1 className='mt-12 pt-12'>Hello react </h1>
-            <h1 className='mt-12 pt-12'>Hello react </h1>
+            <Hero />
+            <Cards />
         </div>
     )
 }

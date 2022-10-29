@@ -16,6 +16,7 @@ model Customer {
   companyName String @unique
   firstName   String
   lastName    String
+  password    String
 
   request         Request? // 1 - 1
   customerAddress CustomerAddress? // 1 - 1

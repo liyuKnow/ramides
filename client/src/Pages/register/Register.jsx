@@ -1,29 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const Register = () => {
-    return (
-        <form>
-            <div class="mb-6">
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-                <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required="" />
-            </div>
-            <div class="mb-6">
-                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
-                <input type="password" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required="" />
-            </div>
-            <div class="mb-6">
-                <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Repeat password</label>
-                <input type="password" id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required="" />
-            </div>
-            <div class="flex items-start mb-6">
-                <div class="flex items-center h-5">
-                    <input id="terms" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required="" />
-                </div>
-                <label for="terms" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a></label>
-            </div>
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
-        </form>
+    const [userData, setUserData] = useState({
+        username: "",
+        email: "",
+        password: "",
+    });
 
+    const [err, setErr] = useState("");
+
+    const handleChange = (e) => {
+        setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post("http://localhost:8080/api/auth/register", userData);
+            navigate("/login");
+        } catch (err) {
+            setErr(err.response.data);
+        }
+    };
+
+    return (
+        <div className='h-[100vh] w-full flex justify-center items-center'>
+            <div class="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <form class="space-y-6" action="#">
+                    <h5 class="text-xl font-medium text-gray-900 dark:text-white">Register</h5>
+                    <div>
+                        <label for="companyName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Company Name</label>
+                        <input required onChange={handleChange} type="text" name="company_name" id="companyName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="lama" />
+                    </div>
+                    <div>
+                        <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your First Name</label>
+                        <input required onChange={handleChange} type="text" name="first_name" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="lama" />
+                    </div>
+                    <div>
+                        <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Last Name</label>
+                        <input required onChange={handleChange} type="text" name="last_name" id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="lama" />
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
+                        <input required onChange={handleChange} type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+                    </div>
+                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={handleSubmit}>Register</button>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                        Already have an Account? <NavLink class="text-blue-700 hover:underline dark:text-blue-500" to={'/login'}>Login</NavLink>
+                    </div>
+                </form>
+            </div>
+        </div>
     )
 }
 
