@@ -4,8 +4,9 @@ import axios from "axios";
 
 const Register = () => {
     const [userData, setUserData] = useState({
-        username: "",
-        email: "",
+        company_name: "",
+        first_name: "",
+        last_name: "",
         password: "",
     });
 
@@ -20,7 +21,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:8080/api/auth/register", userData);
+            await axios.post("http://localhost:8080/api/customers/register", userData);
             navigate("/login");
         } catch (err) {
             setErr(err.response.data);

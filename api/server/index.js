@@ -6,6 +6,7 @@ import cors from "cors";
 
 import authRoutes from "../routes/auth.js";
 import userRoutes from "../routes/users.js";
+import customerRoutes from "../routes/customers.js";
 
 const PORT = 8080;
 
@@ -20,6 +21,7 @@ app.use(express.json());
 // ROUTES
 app.use("/api/auth/", authRoutes);
 app.use("/api/users/", userRoutes);
+app.use("/api/customers/", customerRoutes);
 
 console.log("added new line")
 const server = app.listen(PORT, () =>
