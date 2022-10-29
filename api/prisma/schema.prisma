@@ -17,9 +17,9 @@ model Customer {
   firstName   String
   lastName    String
 
-  request         Request?
-  customerAddress CustomerAddress?
-  orders          Order[]
+  request         Request? // 1 - 1
+  customerAddress CustomerAddress? // 1 - 1
+  orders          Order[] // 1 - n
 }
 
 model User {
@@ -28,8 +28,8 @@ model User {
   lastName  String
   phoneNo   String
 
-  userAddress UserAddress?
-  orders      Order[]
+  userAddress UserAddress? // 1 - 1
+  orders      Order[] // 1 - n
 }
 
 model Driver {
@@ -42,7 +42,7 @@ model Driver {
   // experiance   Int
   // licence   String
 
-  carDriver CarDriver[]
+  carDriver CarDriver[] // 1 - n
 }
 
 model Car {
@@ -54,24 +54,24 @@ model Car {
   capacity      String
   status        String
 
-  orders    Order[]
-  carDriver CarDriver[]
+  orders    Order[] // 1 - n
+  carDriver CarDriver[] // 1 - n
 }
 
 model City {
   id   Int    @id @default(autoincrement())
   name String
 
-  CustomerAddress CustomerAddress[]
-  UserAddress     UserAddress[]
+  CustomerAddress CustomerAddress[] // 1 - n
+  UserAddress     UserAddress[] // 1 - n
 }
 
 model SubCity {
   id   Int    @id @default(autoincrement())
   name String
 
-  CustomerAddress CustomerAddress[]
-  UserAddress     UserAddress[]
+  CustomerAddress CustomerAddress[] // 1 - n
+  UserAddress     UserAddress[] // 1 - n
 }
 
 // RELATIONS
