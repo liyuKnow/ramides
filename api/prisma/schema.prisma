@@ -10,6 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ENTITIES 
 model Customer {
   id          Int     @id @default(autoincrement())
   companyName String  @unique
@@ -17,15 +18,6 @@ model Customer {
   lastName    String?
   email       String?
   phoneNo     String
-}
-
-model Request {
-  id            Int      @id @default(autoincrement())
-  item          String
-  startingDate  DateTime
-  endDate       DateTime
-  startingPlace String
-  destination   String
 }
 
 model User {
@@ -48,6 +40,28 @@ model Car {
   capacity  String
   firstName String?
   status    String?
+}
+
+// RELATIONS
+model Request {
+  id            Int      @id @default(autoincrement())
+  customerId    Int
+  item          String
+  startingDate  DateTime
+  endDate       DateTime
+  startingPlace String
+  destination   String
+  remark        String
+}
+
+model CustomerAddress {
+  id Int @id @default(autoincrement())
+}
+
+model CarDriver {
+  id       Int @id @default(autoincrement())
+  carId    Int
+  driverId Int
 }
 
 model order {
