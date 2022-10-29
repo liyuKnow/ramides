@@ -26,6 +26,7 @@ model User {
   id        Int    @id @default(autoincrement())
   firstName String
   lastName  String
+  password  String
 
   userAddress UserAddress? // 1 - 1
   orders      Order[] // 1 - n
