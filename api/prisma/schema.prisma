@@ -12,34 +12,48 @@ datasource db {
 
 // ENTITIES 
 model Customer {
-  id          Int     @id @default(autoincrement())
-  companyName String  @unique
-  firstName   String?
-  lastName    String?
-  email       String?
-  phoneNo     String
+  id          Int    @id @default(autoincrement())
+  companyName String @unique
+  firstName   String
+  lastName    String
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  firstName String?
-  lastName  String?
+  id        Int    @id @default(autoincrement())
+  firstName String
+  lastName  String
   phoneNo   String
 }
 
 model Driver {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  firstName String?
-  lastName  String?
+  id        Int    @id @default(autoincrement())
+  email     String @unique
+  firstName String
+  lastName  String
+  // employedDate DateTime
+  // salary       Float
+  // experiance   Int
+  // licence   String
 }
 
 model Car {
-  id        Int     @id @default(autoincrement())
-  capacity  String
-  firstName String?
-  status    String?
+  id            Int    @id @default(autoincrement())
+  brand         String
+  drivePerLiter String
+  cabinPlateNo  Int?
+  bodyPlateNo   Int
+  capacity      String
+  status        String
+}
+
+model City {
+  id   Int    @id @default(autoincrement())
+  name String
+}
+
+model SubCity {
+  id   Int    @id @default(autoincrement())
+  name String
 }
 
 // RELATIONS
@@ -47,6 +61,8 @@ model Request {
   id            Int      @id @default(autoincrement())
   customerId    Int
   item          String
+  tarif         String
+  noOfCars      Int
   startingDate  DateTime
   endDate       DateTime
   startingPlace String
@@ -55,7 +71,21 @@ model Request {
 }
 
 model CustomerAddress {
-  id Int @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
+  phoneNo   Int
+  phoneNo2  Int
+  email     String
+  cityId    Int
+  subCityId Int
+}
+
+model UserAddress {
+  id        Int    @id @default(autoincrement())
+  phoneNo   Int
+  phoneNo2  Int
+  email     String
+  cityId    Int
+  subCityId Int
 }
 
 model CarDriver {
