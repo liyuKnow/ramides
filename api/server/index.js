@@ -8,7 +8,7 @@ import authRoutes from "../routes/auth.js";
 import userRoutes from "../routes/users.js";
 import customerRoutes from "../routes/customers.js";
 
-const PORT = 8080;
+const PORT = 8888;
 
 // CREATE APP
 const app = express();
@@ -23,7 +23,7 @@ app.use("/api/auth/", authRoutes);
 app.use("/api/users/", userRoutes);
 app.use("/api/customers/", customerRoutes);
 
-console.log("added new line")
+console.log("added new line");
 const server = app.listen(PORT, () =>
-    console.log(`🚀 Server ready at: http://localhost:${PORT}`)
+  console.log(`🚀 Server ready at: http://localhost:${PORT}`)
 );

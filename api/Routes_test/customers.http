@@ -1,0 +1,39 @@
+# FROM customerController
+# REGISTER CUSTOMER (WITH OUT ADDRESS)
+###
+POST http://localhost:8888/api/customers/ HTTP/1.1
+Content-Type:application/json
+
+{  
+    "company_name": "PI ",
+    "first_name": "test",
+    "last_name": "test",
+    "password":"123456"
+}
+
+# GET ALL CUSTOMERS
+###
+GET http://localhost:8888/api/customers/ HTTP/1.1
+
+# GET CUSTOMER BY ID
+###
+GET http://localhost:8888/api/customers/3 HTTP/1.1
+
+
+# UPDATE CUSTOMER 
+###
+PUT http://localhost:8888/api/customers/3 HTTP/1.1
+Content-Type:application/json
+
+{  
+    "first_name": "Kidus",
+    "last_name": "Meresa"
+}
+
+# DELETE CUSTOMER BY ID
+###
+DELETE  http://localhost:8888/api/customers/2 HTTP/1.1
+
+
+# ========================================================================================
+# ========================================================================================
