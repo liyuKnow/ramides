@@ -80,11 +80,14 @@ model Request {
   id            Int      @id @default(autoincrement())
   item          String
   tarif         String
+  // tariff        String
   noOfCars      Int
   startingDate  DateTime
   endDate       DateTime
   startingPlace String
   destination   String
+  // status        String
+  // remark        String?
   remark        String
 
   customer   Customer @relation(fields: [customerId], references: [id])

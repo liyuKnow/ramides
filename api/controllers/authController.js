@@ -34,3 +34,5 @@ export const register = async (req, res) => {
   //   const { password, ...user } = result;
   res.json(result);
 };
+
+export const login = async (req, res) => {};
