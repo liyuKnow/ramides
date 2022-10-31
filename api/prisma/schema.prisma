@@ -28,6 +28,7 @@ model User {
   firstName String
   lastName  String
   password  String
+  // username String
 
   userAddress UserAddress? // 1 - 1
   orders      Order[] // 1 - n
