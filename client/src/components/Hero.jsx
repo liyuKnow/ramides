@@ -1,47 +1,55 @@
-import React from 'react'
+import React from "react";
+import {
+  CloudUploadIcon,
+  DatabaseIcon,
+  PaperAirplaneIcon,
+  ServerIcon,
+} from "@heroicons/react/solid";
+
+import bgImg from "../assets/images/cyber-bg.png";
 
 const Hero = () => {
-    return (
-
-        <div id="default-carousel" class="relative" data-carousel="static">
-            {/* Carousel wrapper */}
-            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                {/* Item 1 */}
-                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20" data-carousel-item="">
-                    <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                    <img src="https://via.placeholder.com/350x150" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                </div>
-                {/* Item 2 */}
-                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10" data-carousel-item="">
-                    <img src="https://via.placeholder.com/350x65" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                </div>
-                {/* Item 3 */}
-                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10" data-carousel-item="">
-                    <img src="https://via.placeholder.com/350x150" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                </div>
-            </div>
-            {/*Slider indicators  */}
-            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                <button type="button" class="w-3 h-3 rounded-full bg-white dark:bg-gray-800" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                <button type="button" class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-            </div>
-            {/* < Slider controls */}
-            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev="">
-                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next="">
-                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button>
+  return (
+    <div
+      name="home"
+      className="w-full h-screen bg-zinc-200 flex flex-col justify-between"
+    >
+      <div className="grid md:grid-cols-2 max-w-[1240px] m-auto">
+        <div className="flex flex-col justify-center md:items-start w-full px-2 py-8">
+          <p className="text-2xl">Unique Sequencing & Production</p>
+          <h1 className="py-3 text-5xl md:text-7xl font-bold">
+            Cloud Management
+          </h1>
+          <p className="text-2xl">This is our Tech brand.</p>
+          <button className="py-3 px-6 sm:w-[60%] my-4">Get Started</button>
         </div>
+        <div>
+          <img className="w-full" src={bgImg} alt="/" />
+        </div>
+        <div
+          className="absolute flex flex-col py-8 md:min-w-[760px] bottom-[5%]
+            mx-1 md:left-1/2 transform md:-translate-x-1/2 bg-zinc-200
+            border border-slate-300 rounded-xl text-center shadow-xl"
+        >
+          <p>Data Services</p>
+          <div className="flex justify-between flex-wrap px-4">
+            <p className="flex px-4 py-2 text-slate-500">
+              <CloudUploadIcon className="h-6 text-indigo-600" /> App Security
+            </p>
+            <p className="flex px-4 py-2 text-slate-500">
+              <DatabaseIcon className="h-6 text-indigo-600" /> Dashboard Design
+            </p>
+            <p className="flex px-4 py-2 text-slate-500">
+              <ServerIcon className="h-6 text-indigo-600" /> Cloud Data
+            </p>
+            <p className="flex px-4 py-2 text-slate-500">
+              <PaperAirplaneIcon className="h-6 text-indigo-600" /> API
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-    )
-}
-
-export default Hero
+export default Hero;

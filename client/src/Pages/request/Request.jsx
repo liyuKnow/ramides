@@ -1,12 +1,7 @@
-import React from 'react'
-import RequestForm from '../../components/RequestForm'
+import React from "react";
 
 const Request = () => {
-    return (
-        <RequestForm>
+  return <h1>Request</h1>;
+};
 
-        </RequestForm>
-    )
-}
-
-export default Request
+export default Request;
