@@ -1,54 +1,64 @@
-import React, {useState} from 'react';
-import { Link, animateScroll as scroll, } from 'react-scroll'
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
+function Header() {
 
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+  const [top, setTop] = useState(true);
 
-const Navbar = () => {
-    const [nav, setNav] = useState(false)
-    const handleClick = () => setNav(!nav)
-
-    const handleClose =()=> setNav(!nav)
+  // detect whether user has scrolled the page down by 10px 
+  useEffect(() => {
+    const scrollHandler = () => {
+      window.pageYOffset > 10 ? setTop(false) : setTop(true)
+    };
+    window.addEventListener('scroll', scrollHandler);
+    return () => window.removeEventListener('scroll', scrollHandler);
+  }, [top]);
 
   return (
-    <div className='w-screen h-[80px] z-10 bg-zinc-200 fixed drop-shadow-lg'>
-      <div className='px-2 flex justify-between items-center w-full h-full'>
-        <div className='flex items-center'>
-          <h1 className='text-3xl font-bold mr-4 sm:text-4xl'>BRAND.</h1>
-          <ul className='hidden md:flex'>
-          <li><Link to="home" smooth={true} duration={500}>Home</Link></li>
-          <li><Link to="about" smooth={true} offset={-200} duration={500}>About</Link></li>
-          <li><Link to="support" smooth={true} offset={-50} duration={500}>Support</Link></li>
-          <li><Link to="platforms" smooth={true} offset={-100} duration={500}>Platforms</Link></li>
-          <li><Link to="pricing" smooth={true} offset={-50} duration={500}>Pricing</Link></li>
-          </ul>
-        </div>
-        <div className='hidden md:flex pr-4'>
-          <button className='border-none bg-transparent text-black mr-4'>
-            Sign In
-          </button>
-          <button className='px-8 py-3'>Sign Up</button>
-        </div>
-        <div className='md:hidden mr-4' onClick={handleClick}>
-            {!nav ? <MenuIcon className='w-5' /> : <XIcon className='w-5' />}
-          
+    <header className={`fixed w-full z-30 bg-opacity-40 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
+
+          {/* Site branding */}
+          <div className="flex-shrink-0 mr-4">
+            {/* Logo */}
+            <Link to="/" className="block" aria-label="Ramides">
+
+              <div className="flex gap-4">
+                <svg className="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient cx="21.152%" cy="86.063%" fx="21.152%" fy="86.063%" r="79.941%" id="header-logo">
+                      <stop stopColor="#4FD1C5" offset="0%" />
+                      <stop stopColor="#81E6D9" offset="25.871%" />
+                      <stop stopColor="#338CF5" offset="100%" />
+                    </radialGradient>
+                  </defs>
+                  <rect width="32" height="32" rx="16" fill="url(#header-logo)" fillRule="nonzero" />
+                </svg>
+                <h1>Ramides</h1>
+              </div>
+            </Link>
+          </div>
+
+          {/* Site navigation */}
+          <nav className="flex flex-grow">
+            <ul className="flex flex-grow justify-end flex-wrap items-center">
+              <li>
+                <NavLink to="/login" className="font-medium text-blue-600 hover:text-gray-900 px-5 border-2 border-cyan-300 rounded p-2 flex items-center transition duration-150 ease-in-out">Login</NavLink>
+              </li>
+              <li>
+                <NavLink to="/register" className="btn-sm rounded text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-cyan-800 ml-3 p-3">
+                  <span>Register</span>
+                </NavLink>
+              </li>
+            </ul>
+
+          </nav>
+
         </div>
       </div>
-
-      <ul className={!nav ? 'hidden' : 'absolute bg-zinc-200 w-full px-8'}>
-          <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="home" smooth={true} duration={500}>Home</Link></li>
-          <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="about" smooth={true} offset={-200} duration={500}>About</Link></li>
-          <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="support" smooth={true} offset={-50} duration={500}>Support</Link></li>
-          <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="platforms" smooth={true} offset={-100} duration={500}>Platforms</Link></li>
-          <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="pricing" smooth={true} offset={-50} duration={500}>Pricing</Link></li>
-
-        <div className='flex flex-col my-4'>
-            <button className='bg-transparent text-indigo-600 px-8 py-3 mb-4'>Sign In</button>
-            <button className='px-8 py-3'>Sign Up</button>
-        </div>
-      </ul>
-    </div>
+    </header>
   );
-};
+}
 
-export default Navbar;
+export default Header;

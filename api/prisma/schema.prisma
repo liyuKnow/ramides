@@ -28,7 +28,7 @@ model User {
   firstName String
   lastName  String
   password  String
-  // username String
+  username  String
 
   userAddress UserAddress? // 1 - 1
   orders      Order[] // 1 - n
@@ -80,16 +80,14 @@ model SubCity {
 model Request {
   id            Int      @id @default(autoincrement())
   item          String
-  tarif         String
-  // tariff        String
+  tariff        String
   noOfCars      Int
   startingDate  DateTime
   endDate       DateTime
   startingPlace String
   destination   String
-  // status        String
-  // remark        String?
-  remark        String
+  status        String
+  remark        String?
 
   customer   Customer @relation(fields: [customerId], references: [id])
   customerId Int      @unique
