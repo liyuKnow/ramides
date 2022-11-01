@@ -9,6 +9,7 @@ import userRoutes from "../routes/users.js";
 import customerRoutes from "../routes/customers.js";
 import requestRoutes from "../routes/requests.js";
 import statsRoutes from "../routes/stats.js";
+import carRoutes from "../routes/cars.js";
 
 const PORT = 8888;
 
@@ -26,6 +27,7 @@ app.use("/api/users/", userRoutes);
 app.use("/api/customers/", customerRoutes);
 app.use("/api/requests/", requestRoutes);
 app.use("/api/stats/", statsRoutes);
+app.use("/api/cars/", carRoutes);
 
 console.log("added new line");
 const server = app.listen(PORT, () =>

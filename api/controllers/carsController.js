@@ -1,62 +1,82 @@
 import prisma from "../database/index.js";
 
-export const getUsers = async (req, res) => {
-  const users = await prisma.user.findMany({
-    select: {
-      id: true,
-      firstName: true,
-      lastName: true,
+export const registerCar = async (req, res) => {
+  const { brand, drivePerLiter, cabinPlateNo, bodyPlateNo, capacity, status } =
+    req.body;
+  const cars = await prisma.car.create({
+    data: {
+      brand,
+      drivePerLiter,
+      bodyPlateNo,
+      cabinPlateNo,
+      status,
+      capacity,
     },
   });
-  res.json(users);
+  res.json({ cars })
+};
+export const getCars = async (req, res) => {
+  const cars = await prisma.car.findMany({});
+  res.json(cars);
 };
 
-export const getUserById = async (req, res) => {
+export const getCarById = async (req, res) => {
   const { id } = req.params;
 
-  const result = await prisma.user.findUnique({
+  const result = await prisma.car.findUnique({
     where: {
       id: Number(id),
     },
     select: {
       id: true,
-      firstName: true,
-      lastName: true,
+      cabinPlateNo: true,
+      brand: true,
+      status: true,
     },
   });
 
   res.json(result);
 };
 
-export const updateUser = async (req, res) => {
+export const updateCar = async (req, res) => {
   const { id } = req.params;
 
-  await prisma.user.update({
+  await prisma.car.update({
     where: {
       id: Number(id),
     },
     data: {
-      firstName: req.body.first_name,
-      lastName: req.body.last_name,
-      password: req.body.password,
+      brand: req.body.brand,
+      drivePerLiter: req.body.drivePerLiter,
+      cabinPlateNo: req.body.cabinPlateNo,
+      capacity: req.body.capacity
     },
   });
   res.json({
     success: true,
-    message: "user successfully updated",
+    message: "car successfully updated",
   });
 };
 
-export const deleteUser = async (req, res) => {
+export const deleteCar = async (req, res) => {
   const { id } = req.params;
 
-  await prisma.user.delete({
+  await prisma.car.delete({
     where: {
       id: Number(id),
     },
   });
   res.json({
     success: true,
-    message: "user successfully deleted",
+    message: "car successfully deleted",
   });
+};
+
+export const getActiveCars = async (req, res) => {
+  const cars = await prisma.car.findMany({
+    where: {
+      status: "active",
+    }
+  });
+  res.json(cars);
 };

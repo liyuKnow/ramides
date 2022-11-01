@@ -44,7 +44,7 @@ model Driver {
   // experiance   Int
   // licence   String
 
-  carDriver CarDriver[] // 1 - n
+  car Car? // 1 - n
 }
 
 model Car {
@@ -56,8 +56,9 @@ model Car {
   capacity      String
   status        String
 
-  orders    Order[] // 1 - n
-  carDriver CarDriver[] // 1 - n
+  orders   Order[] // 1 - n
+  driver   Driver  @relation(fields: [driverId], references: [id])
+  driverId Int     @unique // 1 - n
 }
 
 model City {
@@ -126,18 +127,6 @@ model UserAddress {
 
   user   User @relation(fields: [userId], references: [id])
   userId Int  @unique
-}
-
-model CarDriver {
-  id Int @id @default(autoincrement())
-
-  car   Car @relation(fields: [carId], references: [id])
-  carId Int
-
-  driver   Driver @relation(fields: [driverId], references: [id])
-  driverId Int
-
-  status String
 }
 
 model Order {

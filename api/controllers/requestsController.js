@@ -102,7 +102,15 @@ export const getInfo = async (req, res) => {
       id: Number(id),
     },
     include: {
-      customer: true
+      customer: {
+        select: {
+          id: true,
+          companyName: true,
+          firstName: true,
+          lastName: true
+        }
+      }
+
     }
   });
 
