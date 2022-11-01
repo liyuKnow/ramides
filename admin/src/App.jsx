@@ -1,15 +1,8 @@
-import { useState } from 'react'
-import Home from './pages/home/Home'
-
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/index";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div>
-      <Home />
-    </div>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

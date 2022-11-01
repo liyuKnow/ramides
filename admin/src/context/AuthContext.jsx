@@ -4,29 +4,29 @@ import axios from "axios";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [currentCompany, setCurrentCompany] = useState(
-    JSON.parse(localStorage.getItem("company") || null)
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem("user") || null)
   );
 
-  const login = async (companyData) => {
+  const login = async (userData) => {
     const res = await axios.post(
       "http://localhost:8888/api/auth/customers/login",
-      companyData
+      userData
     );
-    setCurrentCompany(res.data);
+    setCurrentUser(res.data);
   };
 
   const logout = async () => {
-    // const res = await axios.post("http://localhost:8888/api/auth/logout");
-    setCurrentCompany(null);
+    const res = await axios.post("http://localhost:8888/api/auth/logout");
+    setCurrentUser(null);
   };
 
   useEffect(() => {
-    localStorage.setItem("company", JSON.stringify(currentCompany));
-  }, [currentCompany]);
+    localStorage.setItem("user", JSON.stringify(currentUser));
+  }, [currentUser]);
 
   const values = {
-    currentCompany,
+    currentUser,
     login,
     logout,
   };

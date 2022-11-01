@@ -3,7 +3,7 @@ import prisma from "../database/index.js";
 export const registerRequest = async (req, res) => {
   const {
     item,
-    tarif,
+    tariff,
     noOfCars,
     startingDate,
     endDate,
@@ -16,7 +16,7 @@ export const registerRequest = async (req, res) => {
   const result = await prisma.request.create({
     data: {
       item,
-      tarif,
+      tariff,
       noOfCars,
       startingDate,
       endDate,
@@ -82,4 +82,13 @@ export const deleteRequest = async (req, res) => {
     success: true,
     message: "request successfully deleted",
   });
+};
+
+export const getPending = async (req, res) => {
+  const pending = await prisma.request.findMany({
+    where: {
+      pending: true,
+    },
+  });
+  res.json(pending);
 };

@@ -6,15 +6,19 @@ Content-Type:application/json
 
 {  
     "item":"dap",          
-    "tarif":"1000",      
+    "tariff":"1000",      
     "noOfCars":2,      
     "startingDate":"2022-10-23T18:25:43.511Z",  
     "endDate":"2022-11-08T18:25:43.511Z",      
     "startingPlace":"djibouti", 
     "destination":"addis ababa",  
     "remark":"remark",
-    "customer_id":3
+    "customer_id":5
 }
+
+# GET PENDING REQUESTS
+###
+GET http://localhost:8888/api/requests/pending HTTP/1.1
 
 # GET ALL REQUESTS
 ###

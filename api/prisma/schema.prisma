@@ -86,7 +86,8 @@ model Request {
   endDate       DateTime
   startingPlace String
   destination   String
-  status        String
+  status        Boolean  @default(false)
+  pending       Boolean  @default(true)
   remark        String?
 
   customer   Customer @relation(fields: [customerId], references: [id])
