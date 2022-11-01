@@ -8,6 +8,7 @@ import authRoutes from "../routes/auth.js";
 import userRoutes from "../routes/users.js";
 import customerRoutes from "../routes/customers.js";
 import requestRoutes from "../routes/requests.js";
+import statsRoutes from "../routes/stats.js";
 
 const PORT = 8888;
 
@@ -24,6 +25,7 @@ app.use("/api/auth/", authRoutes);
 app.use("/api/users/", userRoutes);
 app.use("/api/customers/", customerRoutes);
 app.use("/api/requests/", requestRoutes);
+app.use("/api/stats/", statsRoutes);
 
 console.log("added new line");
 const server = app.listen(PORT, () =>

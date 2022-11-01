@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import { Login, Layout, Home, Request } from "../pages/index";
+import { Login, Layout, Home, PendingRequests, Approve } from "../pages/index";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +12,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/request",
-        element: <Request />,
+        path: "/pending_requests",
+        element: <PendingRequests />,
+      },
+      {
+        path: "/approve/:id",
+        element: <Approve />,
       },
     ],
   },

@@ -4,7 +4,7 @@ import SideNavItem from "./SideNavItem";
 
 const Sidebar = () => {
   return (
-    <aside className="relative bg-sidebar bg-gradient-to-tl from-cyan-500 to-indigo-600 h-screen w-64 hidden sm:block shadow-xl">
+    <aside className="relative bg-sidebar  w-64 hidden sm:block shadow-xl">
       <div className="p-6">
         <a
           href="index.html"
@@ -21,6 +21,12 @@ const Sidebar = () => {
         <SideNavItem link={"/drivers"} icon={<FaPlus />} title="Cars" />
         <SideNavItem link={"/drivers"} icon={<FaPlus />} title="Drivers" />
       </nav>
+      <button
+        type="button"
+        class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ..."
+      >
+        Hover me
+      </button>
     </aside>
   );
 };

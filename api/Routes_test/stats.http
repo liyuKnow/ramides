@@ -1,0 +1,4 @@
+# GET ALL COUNTS
+###
+GET http://localhost:8888/api/stats/counts HTTP/1.1
+

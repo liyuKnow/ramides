@@ -20,6 +20,10 @@ Content-Type:application/json
 ###
 GET http://localhost:8888/api/requests/pending HTTP/1.1
 
+# GET PENDING INFO
+###
+GET http://localhost:8888/api/requests/info/4 HTTP/1.1
+
 # GET ALL REQUESTS
 ###
 GET http://localhost:8888/api/requests/ HTTP/1.1

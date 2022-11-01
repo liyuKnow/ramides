@@ -4,23 +4,25 @@ export const registerRequest = async (req, res) => {
   const {
     item,
     tariff,
-    noOfCars,
-    startingDate,
-    endDate,
-    startingPlace,
+    no_of_cars,
+    starting_date,
+    end_date,
+    starting_place,
     destination,
     remark,
     customer_id,
   } = req.body;
+  // let starting = new Date(starting_date).toJSON
+  // let end = new Date(end_date).toDateString
 
   const result = await prisma.request.create({
     data: {
       item,
       tariff,
-      noOfCars,
-      startingDate,
-      endDate,
-      startingPlace,
+      noOfCars: Number(no_of_cars),
+      startingDate: new Date(starting_date).toJSON(),
+      endDate: new Date(end_date).toJSON(),
+      startingPlace: starting_place,
       destination,
       remark,
       customerId: customer_id,
@@ -92,3 +94,17 @@ export const getPending = async (req, res) => {
   });
   res.json(pending);
 };
+
+export const getInfo = async (req, res) => {
+  const { id } = req.params;
+  const requestInfo = await prisma.request.findUnique({
+    where: {
+      id: Number(id),
+    },
+    include: {
+      customer: true
+    }
+  });
+
+  res.json(requestInfo);
+}
