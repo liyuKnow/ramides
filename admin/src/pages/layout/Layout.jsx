@@ -10,9 +10,10 @@ const Layout = () => {
       {/* <div className="bg-gray-100 font-family-karla flex">
         <Sidebar />
         <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
-          <Navbar />
+          
           <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6"> */}
+      <Navbar />
       <Outlet />
       {/* </main>
 

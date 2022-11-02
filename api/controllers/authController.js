@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 // import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
-  const { first_name, last_name, password } = req.body;
+  const { first_name, last_name, username, password } = req.body;
 
   // CREATE USER ADDRESS
   // const addressData = address
@@ -18,6 +18,7 @@ export const register = async (req, res) => {
 
   const result = await prisma.user.create({
     data: {
+      username,
       firstName: first_name,
       lastName: last_name,
       password: hashedPassword,

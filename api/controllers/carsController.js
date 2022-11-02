@@ -13,7 +13,7 @@ export const registerCar = async (req, res) => {
       capacity,
     },
   });
-  res.json({ cars })
+  res.json({ cars });
 };
 export const getCars = async (req, res) => {
   const cars = await prisma.car.findMany({});
@@ -49,7 +49,7 @@ export const updateCar = async (req, res) => {
       brand: req.body.brand,
       drivePerLiter: req.body.drivePerLiter,
       cabinPlateNo: req.body.cabinPlateNo,
-      capacity: req.body.capacity
+      capacity: req.body.capacity,
     },
   });
   res.json({
@@ -76,7 +76,7 @@ export const getActiveCars = async (req, res) => {
   const cars = await prisma.car.findMany({
     where: {
       status: "active",
-    }
+    },
   });
   res.json(cars);
 };
