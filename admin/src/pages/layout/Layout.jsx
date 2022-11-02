@@ -6,22 +6,19 @@ import Sidebar from "../../components/Sidebar";
 
 const Layout = () => {
   return (
-    <>
-      {/* <div className="bg-gray-100 font-family-karla flex">
+    <div className="flex flex-row">
+      <div className="basis-1/5 relative bg-sidebar h-screen w-64 sm:block shadow-xl">
         <Sidebar />
-        <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
-          
-          <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-            <main class="w-full flex-grow p-6"> */}
-      <Navbar />
-      <Outlet />
-      {/* </main>
-
-            <Footer />
-          </div>
+      </div>
+      <div className="basis-4/5 bg-gray-50">
+        <Navbar />
+        <div class="w-full overflow-x-hidden flex flex-col">
+          <main class="w-full flex-grow p-6">
+            <Outlet />
+          </main>
         </div>
-      </div> */}
-    </>
+      </div>
+    </div>
   );
 };
 

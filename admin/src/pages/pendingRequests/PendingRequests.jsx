@@ -9,7 +9,7 @@ const PendingRequests = () => {
     <>
       <h1 className="text-3xl text-black pb-6">Pending Request</h1>
 
-      <div className="p-6">
+      <div className="">
         <PendingTable />
       </div>
     </>

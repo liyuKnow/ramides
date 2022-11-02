@@ -4,30 +4,25 @@ import SideNavItem from "./SideNavItem";
 
 const Sidebar = () => {
   return (
-    <aside className="relative bg-sidebar  w-64 hidden sm:block shadow-xl">
-      <div className="p-6">
-        <a
-          href="index.html"
-          className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
-        >
-          Ramides Admin
-        </a>
+    <div className="bg-white">
+      <div className="h-[50px] flex justify-start items-center shadow-md pl-4 py-8">
+        {/* <h1 className="font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-pink-400 to-blue-600"> */}
+        <h1 className="font-bold text-4xl text-gray-600 ">Ramides</h1>
       </div>
-      <nav className="text-white text-base font-semibold">
-        <SideNavItem link={"/drivers"} icon={<FaPlus />} title="Home" />
-        <SideNavItem link={"/drivers"} icon={<FaPlus />} title="Requests" />
-        <SideNavItem link={"/drivers"} icon={<FaPlus />} title="Customers" />
-        <SideNavItem link={"/drivers"} icon={<FaPlus />} title="Orders" />
-        <SideNavItem link={"/drivers"} icon={<FaPlus />} title="Cars" />
-        <SideNavItem link={"/drivers"} icon={<FaPlus />} title="Drivers" />
+      <nav className="text-slate-500 text-base font-semibold scrollbar-hide overflow-y-scroll h-[calc(100vh-50px)]">
+        <ul className="w-full justify-start items-center">
+          <li className="hover:bg-slate-600 hover:text-gray-50 p-4 ">
+            <a href="#">Dashboard</a>
+          </li>
+          <li className="hover:bg-slate-600 hover:text-gray-50 p-4">
+            <a href="#">Requests</a>
+          </li>
+          <li className="hover:bg-slate-600 hover:text-gray-50 p-4">
+            <a href="#">Orders</a>
+          </li>
+        </ul>
       </nav>
-      <button
-        type="button"
-        class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ..."
-      >
-        Hover me
-      </button>
-    </aside>
+    </div>
   );
 };
 

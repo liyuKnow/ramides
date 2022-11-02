@@ -1,0 +1,12 @@
+
+
+### order registration
+POST http://localhost:8888/api/orders/ HTTP/1.1
+Content-Type:application/json
+
+{  
+   "customer_id" :5 , 
+   "user_id":8, 
+   "car_id":1, 
+   "request_id":4
+}

@@ -15,6 +15,7 @@ export const registerCar = async (req, res) => {
   });
   res.json({ cars });
 };
+
 export const getCars = async (req, res) => {
   const cars = await prisma.car.findMany({});
   res.json(cars);
