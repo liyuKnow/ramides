@@ -73,7 +73,7 @@ const Request = () => {
                 id="tariff"
                 name="tariff"
                 type="number"
-                placeholder="Doe"
+                placeholder="per kilo"
               />
             </div>
           </div>

@@ -68,7 +68,7 @@ const Approve = () => {
     <>
       <h1 className="text-3xl text-black pb-6">Approve Request</h1>
       <div className="p-6">
-        <div className="w-full pl-12 p-2 bg-green-200 shadow-md rounded-2 text-white bg-gradient-to-r from-cyan-500 to-blue-500">
+        <div className="w-full pl-12 p-2 bg-green-200 shadow-md rounded text-white bg-gradient-to-r from-slate-400 to-slate-500">
           <h1 className="text-2xl font-semibold">Customer Detail</h1>
           {customer.length !== null && (
             <div>
@@ -81,7 +81,7 @@ const Approve = () => {
             </div>
           )}
         </div>
-        <div className="w-full p-2 bg-green-200 shadow-md rounded mt-4 text-white pl-12 bg-gradient-to-r from-cyan-500 to-blue-500">
+        <div className="w-full p-2 bg-green-200 shadow-md rounded mt-4 text-white pl-12 bg-gradient-to-r from-slate-400 to-slate-500">
           <h1 className="text-2xl font-semibold">Customer Detail</h1>
           {request.length !== null && (
             <div>
@@ -103,7 +103,7 @@ const Approve = () => {
             </div>
           )}
         </div>
-        <div className="w-full p-2 bg-green-200 shadow-md rounded mt-4 text-white pl-12 bg-gradient-to-r from-cyan-500 to-blue-500">
+        <div className="w-full p-2 bg-green-200 shadow-md rounded mt-4 text-white pl-12 bg-gradient-to-r from-slate-400 to-slate-500">
           <h1 className="text-2xl font-semibold">Assign cars</h1>
           <form action="" className="flex gap-3 flex-col">
             <label for="cars">Assign a car:</label>
